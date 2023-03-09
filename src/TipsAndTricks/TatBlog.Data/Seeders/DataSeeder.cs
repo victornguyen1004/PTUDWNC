@@ -85,17 +85,17 @@ namespace TatBlog.Data.Seeders
         {
             var tags = new List<Tag>()
             {
-                new() {Name="Google",Description="Google",UrlSlug=""},
-                new(){Name="ASP.net",Description="ASP.net",UrlSlug=""},
-                new(){Name="TailwindCSS",Description="TailwindCSS",UrlSlug=""},
-                new(){Name="ReactJS",Description="ReactJS",UrlSlug=""},
-                new(){Name="API",Description="API",UrlSlug=""},
-                new() {Name="Ohio Final Boss",Description="Ohio Final Boss",UrlSlug=""},
-                new(){Name="ADO.net",Description="ado.net",UrlSlug=""},
-                new(){Name="Twitter",Description="Twitter",UrlSlug=""},
-                new(){Name="Apple",Description="Apple",UrlSlug=""},
-                new(){Name="Machine Learning",Description="Machine Learning",UrlSlug=""},
-                new() {Name="NextJS",Description="NextJS",UrlSlug=""}
+                new() {Name="Google",Description="Google",UrlSlug="google"},
+                new(){Name="ASP.net",Description="ASP.net",UrlSlug="asp.net"},
+                new(){Name="TailwindCSS",Description="TailwindCSS",UrlSlug="tailwindcss"},
+                new(){Name="ReactJS",Description="ReactJS",UrlSlug="reactjs"},
+                new(){Name="API",Description="API",UrlSlug="api"},
+                new() {Name="Ohio Final Boss",Description="Ohio Final Boss",UrlSlug="ohiofinalboss"},
+                new(){Name="ADO.net",Description="ado.net",UrlSlug="ado.net"},
+                new(){Name="Twitter",Description="Twitter",UrlSlug="twitter"},
+                new(){Name="Apple",Description="Apple",UrlSlug="apple"},
+                new(){Name="Machine Learning",Description="Machine Learning",UrlSlug="machinelearning"},
+                new() {Name="NextJS",Description="NextJS",UrlSlug="nextjs"}
             };
 
             _dbContext.Tags.AddRange(tags);
