@@ -1,28 +1,29 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using TatBlog.Core.Contracts;
 
 namespace TatBlog.Core.Collections
 {
     public class PagedList<T> : IPagedList<T>
     {
-        private readonly List<T> _subset = new();
-        public PagedList(IList<T> list, int pageNumber, int pageSize, int totalCount)
+
+        public readonly List<T> _subnet = new();
+
+        public PagedList(IList<T> items,
+                int pageNumber,
+                int pageSize,
+                int totalCount)
         {
             PageNumber = pageNumber;
             PageSize = pageSize;
             TotalItemCount = totalCount;
-            _subset.AddRange(list);
+
+            _subnet.AddRange(items);
+
         }
 
-
         public int PageIndex { get; set; }
-        public int TotalItemCount { get; set; }
         public int PageSize { get; set; }
+        public int TotalItemCount { get; }
         public int PageNumber
         {
             get => PageIndex + 1;
@@ -32,29 +33,34 @@ namespace TatBlog.Core.Collections
         {
             get
             {
-                if (PageSize == 0) return 0;
+                if (PageSize == 0)
+                    return 0;
+
                 var total = TotalItemCount / PageSize;
-                if (TotalItemCount % PageSize > 0) total++;
+
+                if (TotalItemCount % PageSize > 0)
+                    total++;
+
                 return total;
             }
         }
 
-        public int HasPreviousPage => throw new NotImplementedException();
+        public bool HasPreviousPage => PageIndex > 0;
 
-        public int HasNextPage => throw new NotImplementedException();
+        public bool HasNextPage => (PageIndex < (PageCount - 1));
 
-        public bool IsFirstPage => throw new NotImplementedException();
+        public bool IsFirstPage => (PageIndex <= 0);
 
-        public bool IsLastPage => throw new NotImplementedException();
+        public bool IsLastPage => (PageIndex >= (PageCount - 1));
 
-        public int FirstItemIndex => throw new NotImplementedException();
+        public int FirstItemIndex => (PageIndex * PageSize) + 1;
 
-        public int LastItemIndex => throw new NotImplementedException();
+        public int LastItemIndex
+            => Math.Min(TotalItemCount, ((PageIndex * PageSize) + PageSize));
 
-        #region
         public IEnumerator<T> GetEnumerator()
         {
-            return _subset.GetEnumerator();
+            return _subnet.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -62,8 +68,7 @@ namespace TatBlog.Core.Collections
             return GetEnumerator();
         }
 
-        public T this[int index] => _subset[index];
-        public virtual int Count => _subset.Count;
-        #endregion
+        public T this[int index] => _subnet[index];
+        public virtual int Count => _subnet.Count;
     }
 }

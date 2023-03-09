@@ -10,24 +10,52 @@ public class Program
     {
         var context = new BlogDbContext();
         IBlogRepository blogRepository = new BlogRepository(context);
-        var pagingParams = new PagingParams
-        {
-            PageNumber = 1,
-            PageSize = 3,
-            SortColumn = "name",
-            SortOrder = "DESC"
-        };
-        var tagsList = await blogRepository.GetPagedTagsAsync(pagingParams);
 
-        Console.WriteLine("{0,-5}{1,-50}{2,10}",
-            "ID", "Name", "Count");
+        var result = blogRepository.UpdateCategory(200, "Category mới", "categorymoi", "Cho hàm category");
+        Console.WriteLine(result);
 
-        foreach (var item in tagsList)
-        {
-            Console.WriteLine("{0,-5}{1,-50}{2,10}",
-                item.Id, item.Name, item.PostCount);
-        }
 
+        //string slug = "Hihi";
+        //var resultCategory = await blogRepository.GetCategoryBySlug(slug);
+        //if (resultCategory != null) { 
+        //Console.WriteLine(resultCategory.Name);
+        //}
+        //else
+        //{
+        //    Console.WriteLine("Khong tim thay Category voi slug la {0}", slug);
+        //}
+
+
+        //bool result = await blogRepository.RemoveTagById(6);
+        //if (result)
+        //{
+        //    Console.WriteLine("OK");
+        //}
+        //else
+        //{
+        //    Console.WriteLine("KO");
+        //}
+
+        //var pagingParams = new PagingParams
+        //{
+        //    PageNumber = 1,
+        //    PageSize = 3,
+        //    SortColumn = "name",
+        //    SortOrder = "DESC"
+        //};
+        //var tagsList = await blogRepository.GetPagedTagsAsync(pagingParams);
+        //Console.WriteLine("{0,-5}{1,-50}{2,10}",
+        //    "ID", "Name", "Count");
+        //foreach (var item in tagsList)
+        //{
+        //    Console.WriteLine("{0,-5}{1,-50}{2,10}",
+        //        item.Id, item.Name, item.PostCount);
+        //}
+
+        //string slug = "reactjs";
+        //Tag tagBySlug = await blogRepository.GetTagBySlug(slug);
+        //Console.WriteLine(tagBySlug.Name);
+        //Console.ReadKey();
 
         //var context = new BlogDbContext();
         //IBlogRepository blogRepository = new BlogRepository(context);
