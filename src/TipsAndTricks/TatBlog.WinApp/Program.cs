@@ -8,11 +8,11 @@ public class Program
 {
     public static async Task Main(string[] args)
     {
-        var context = new BlogDbContext();
-        IBlogRepository blogRepository = new BlogRepository(context);
-
-        var result = blogRepository.UpdateCategory(200, "Category mới", "categorymoi", "Cho hàm category");
-        Console.WriteLine(result);
+        //var context = new BlogDbContext();
+        //IBlogRepository blogRepository = new BlogRepository(context);
+        //Category newCategory = new Category();
+        //var result = blogRepository.AddOrUpdateCategoryAsync(newCategory);
+        //Console.WriteLine(result);
 
 
         //string slug = "Hihi";

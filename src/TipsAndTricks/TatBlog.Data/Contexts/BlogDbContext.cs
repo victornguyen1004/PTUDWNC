@@ -18,7 +18,7 @@ namespace TatBlog.Data.Contexts
 
         public BlogDbContext(DbContextOptions<BlogDbContext> options) : base(options)
         {
-
+                
         }
 
 
