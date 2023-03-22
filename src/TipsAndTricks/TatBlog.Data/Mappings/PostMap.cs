@@ -48,21 +48,21 @@ namespace TatBlog.Data.Mappings
                 .IsRequired()
                 .HasDefaultValue(false);
 
-            builder.Property(p => p.PostDate)
+            builder.Property(p => p.PostedDate)
                 .HasColumnType("datetime");
 
-            builder.Property(p => p.ModifedDate)
+            builder.Property(p => p.ModifiedDate)
                 .HasColumnType("datetime");
 
             builder.HasOne(p => p.Category)
                 .WithMany(c => c.Posts)
-                .HasForeignKey(p => p.CategoryID)
+                .HasForeignKey(p => p.CategoryId)
                 .HasConstraintName("FK_Posts_Categories")
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(p => p.Author)
                 .WithMany(a => a.Posts)
-                .HasForeignKey(p => p.AuthorID)
+                .HasForeignKey(p => p.AuthorId)
                 .HasConstraintName("FK_Posts_Authors")
                 .OnDelete(DeleteBehavior.Cascade);
 
