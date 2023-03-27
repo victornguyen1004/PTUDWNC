@@ -21,6 +21,6 @@ namespace TatBlog.Core.Entities
         public DateTime? DateUnsubscribe { get; set; }
         public string? Reason { get; set; }
         public SubscribeStatus subscribeStatus { get; set; }
-        public string? Note { get; set; }
+        public string Note { get; set; }
     }
 }

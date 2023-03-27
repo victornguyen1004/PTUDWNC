@@ -1,0 +1,55 @@
+﻿@model Subscriber
+@{
+    ViewData["Title"] = "Hủy đăng ký nhận thông báo";
+}
+
+@if (Model == null)
+{
+    <div class="mx-auto mt-5 p-5 rounded shadow" style="max-width: 576px">
+        <h5 class="text-uppercase">Hủy đăng ký nhận thông báo</h5>
+        <p>Nhận thông báo về tin tức, bài viết mới thông qua email.</p>
+        <div class="mb-4">
+            <form asp-controller="Newsletter"
+              asp-action="Unsubscribe"
+                  method="post">
+                <div class="input-group mb-3 d-flex flex-row">
+                    <input type="text"
+                           class="form-control"
+                           name="email"
+                           required
+                           placeholder="Enter email"
+                           aria-label="Enter email"
+                           aria-describedby="btnSearchPost" />
+                </div>
+                <div class="input-group mb-3 d-flex flex-row">
+                    <input type="text"
+                           class="form-control"
+                           name="reason"
+                           required
+                           placeholder="Enter reason"
+                           aria-label="Enter reason"
+                           aria-describedby="btnSearchPost" />
+                </div>
+                <button class="btn btn-outline-secondary"
+                        type="submit"
+                        id="btnSearchPost">
+                    Hủy đăng ký
+                </button>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <div class="mx-auto mt-5 p-5 rounded shadow" style="max-width: 576px">
+        <h5 class="text-uppercase">Thông báo</h5>
+        @if (ViewBag.SubSuccess)
+        {
+            <partial name="_SubscribeResult" model="Model" />
+        }
+        else
+        {
+            <p>Hủy đăng ký thất bại.</p>
+        }
+    </div>
+}

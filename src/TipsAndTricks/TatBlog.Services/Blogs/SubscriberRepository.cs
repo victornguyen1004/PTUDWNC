@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
 using System.Threading;
 using TatBlog.Core.Contracts;
 using TatBlog.Core.DTO;
@@ -19,44 +20,55 @@ namespace TatBlog.Services.Blogs
         }
         public async Task<bool> SubscribeAsync(string email, CancellationToken cancellationToken = default)
         {
-            var subEmail = _context.Set<Subscriber>().FirstOrDefault(s => s.Email == email);
-
-            if (subEmail == null)
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(email);
+            if (match.Success)
             {
-                var newSub = new Subscriber()
+                var subEmail = _context.Set<Subscriber>().FirstOrDefault(s => s.Email == email);
+
+                if (subEmail == null)
                 {
-                    DateSubscribe = DateTime.Now,
-                    Email = email,
-                    subscribeStatus = SubscribeStatus.Subscribe,
-                };
+                    var newSub = new Subscriber()
+                    {
+                        DateSubscribe = DateTime.Now,
+                        Email = email,
+                        subscribeStatus = SubscribeStatus.Subscribe,
+                    };
 
-                _context.Set<Subscriber>().Add(newSub);
+                    _context.Set<Subscriber>().Add(newSub);
+                }
+                else
+                {
+                    if (subEmail.subscribeStatus == SubscribeStatus.Block || subEmail.subscribeStatus == SubscribeStatus.Subscribe)
+                        return false;
+                    subEmail.DateSubscribe = DateTime.Now;
+                    subEmail.DateUnsubscribe = null;
+                    subEmail.subscribeStatus = SubscribeStatus.Subscribe;
+                    subEmail.Reason = null;
+                    _context.Entry(subEmail).State = EntityState.Modified;
+                }
+                await _context.SaveChangesAsync(cancellationToken);
+                return true;
             }
-            else
-            {
-                if (subEmail.subscribeStatus == SubscribeStatus.Block || subEmail.subscribeStatus == SubscribeStatus.Subscribe)
-                    return false;
-                subEmail.DateSubscribe = DateTime.Now;
-                subEmail.DateUnsubscribe = null;
-                subEmail.subscribeStatus = SubscribeStatus.Subscribe;
-                subEmail.Reason = null;
-                _context.Entry(subEmail).State = EntityState.Modified;
-            }
-            await _context.SaveChangesAsync(cancellationToken);
-            return true;
+            return false;
         }
 
         public async Task<bool> UnsubscribeAsync(string email, string reason, CancellationToken cancellationToken = default)
         {
-            var subEmail = _context.Set<Subscriber>().FirstOrDefault(s => s.Email == email);
-            if (subEmail != null)
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(email);
+            if (match.Success)
             {
-                subEmail.DateUnsubscribe = DateTime.Now;
-                subEmail.subscribeStatus = SubscribeStatus.Unsubscribe;
-                subEmail.Reason = reason;
-                _context.Entry(subEmail).State = EntityState.Modified;
-                await _context.SaveChangesAsync(cancellationToken);
-                return true;
+                var subEmail = _context.Set<Subscriber>().FirstOrDefault(s => s.Email == email);
+                if (subEmail != null)
+                {
+                    subEmail.DateUnsubscribe = DateTime.Now;
+                    subEmail.subscribeStatus = SubscribeStatus.Unsubscribe;
+                    subEmail.Reason = reason;
+                    _context.Entry(subEmail).State = EntityState.Modified;
+                    await _context.SaveChangesAsync(cancellationToken);
+                    return true;
+                }
             }
             return false;
         }

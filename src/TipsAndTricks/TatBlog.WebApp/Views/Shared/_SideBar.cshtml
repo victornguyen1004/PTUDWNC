@@ -1,24 +1,34 @@
-﻿<!-- Form tìm kiếm -->
-<h1>
-    Tìm kiếm bài viết
-</h1>
+﻿<div class="my-4">
+    <!-- Form tìm kiếm -->
+    <partial name="_SearchForm" />
 
-<!-- Các chuyên mục/ chủ đề -->
-<h1>
-    Các chủ đề
-</h1>
+    <!-- Các chuyên mục/ chủ đề -->
+    @await Component.InvokeAsync("CategoriesWidget")
 
-<!-- Top các bài viết nổi bật -->
-<h1>
-    Bài viết nổi bật
-</h1>
+    <!-- Top các bài viết nổi bật -->
+    @await Component.InvokeAsync("FeaturedPostsWidget")
 
-<!-- Đăng ký nhận tin mới -->
-<h1>
-    Đăng ký nhận tin mới
-</h1>
+    <!-- Các bài viết ngẫu nhiên -->
+    @await Component.InvokeAsync("RandomPostsWidget")
 
-<!-- Tag cloud -->
-<h1>
-    Tag clound
-</h1>
+    <!-- Các tác giả nổi tiếng -->
+    @await Component.InvokeAsync("BestAuthorsWidget")
+
+    <!-- Danh sách các bài viết qua 12 tháng vừa qua -->
+    @await Component.InvokeAsync("ArchivesWidget")
+
+    <!-- Tag cloud -->
+    @await Component.InvokeAsync("TagCloudWidget")
+
+    <!-- Đăng ký nhận tin mới -->
+    <button class="btn btn-outline-secondary ">
+        <a asp-controller="Newsletter"
+           asp-action="Subscribe"
+           class="text-black-50">
+            Đăng ký nhận tin mới
+        </a>
+    </button>
+
+    
+
+</div>
