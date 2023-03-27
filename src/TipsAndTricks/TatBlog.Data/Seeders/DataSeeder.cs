@@ -63,16 +63,16 @@ namespace TatBlog.Data.Seeders
         {
             var categories = new List<Category>()
             {
-                new() { Name = ".NET Core", Description = ".NET Core", UrlSlug = "", ShowOnMenu = true },
-                new() { Name = "Architecture", Description = "Architecture", UrlSlug = "", ShowOnMenu = true },
-                new() { Name = "Messaging", Description = "Architecture", UrlSlug = "", ShowOnMenu = true },
-                new() { Name = "OOP", Description = "Architecture", UrlSlug = "", ShowOnMenu = true },
-                new() { Name = "Design Pattern", Description = "Design Pattern", UrlSlug = "", ShowOnMenu = true },
-                new() { Name = ".NET Core", Description = ".NET Core", UrlSlug = "", ShowOnMenu = true },
-                new() { Name = "Architecture", Description = "Architecture", UrlSlug = "", ShowOnMenu = true },
-                new() { Name = "Messaging", Description = "Architecture", UrlSlug = "", ShowOnMenu = true },
-                new() { Name = "OOP", Description = "Architecture", UrlSlug = "", ShowOnMenu = true },
-                new() { Name = "Design Pattern", Description = "Design Pattern", UrlSlug = "", ShowOnMenu = true }
+                new() { Name = ".NET Core", Description = ".NET Core", UrlSlug = "NET Core", ShowOnMenu = true },
+                new() { Name = "Architecture", Description = "Architecture", UrlSlug = "Architecture", ShowOnMenu = true },
+                new() { Name = "Messaging", Description = "Architecture", UrlSlug = "Architecture", ShowOnMenu = true },
+                new() { Name = "OOP", Description = "Architecture", UrlSlug = "Architecture", ShowOnMenu = true },
+                new() { Name = "Design Pattern", Description = "Design Pattern", UrlSlug = "Design Pattern", ShowOnMenu = true },
+                new() { Name = "ASP.Net", Description = "ASP.Net", UrlSlug = "ASP.Net", ShowOnMenu = true },
+                new() { Name = "Web Design", Description = "Web Design", UrlSlug = "Web Design", ShowOnMenu = true },
+                new() { Name = "TailwindCss", Description = "TailwindCss", UrlSlug = "TailwindCss", ShowOnMenu = true },
+                new() { Name = "Database", Description = "Database", UrlSlug = "Database", ShowOnMenu = true },
+                new() { Name = "Design", Description = "Design", UrlSlug = "Design", ShowOnMenu = true }
             };
 
             _dbContext.Categories.AddRange(categories);
@@ -112,7 +112,7 @@ namespace TatBlog.Data.Seeders
                 new()
                 {
                     Title="ASP.NET Core Diagnostic Scenarious",
-                    ShortDescription="David and Friend has a greate reposive",
+                    ShortDescription="This is a short description",
                     Description="Here's a few greate DON'T and Do examples",
                     Meta="David and friends has a greate repository filled",
                     UrlSlug="ASPNET core diagnoretic-scenarious",
@@ -129,17 +129,17 @@ namespace TatBlog.Data.Seeders
                 },
                 new()
                 {
-                    Title="ASP.NET Core Diagnostic Scenarious",
-                    ShortDescription="David and Friend has a greate reposive",
+                    Title="TailwindCSS",
+                    ShortDescription="David and has a great responsive",
                     Description="Here's a few greate DON'T and Do examples",
                     Meta="David and friends has a greate repository filled",
-                    UrlSlug="ASPNET core diagnoretic-scenarious",
+                    UrlSlug="TailwindCSS is new css",
                     Published=true,
                     PostedDate=new DateTime(2021,9,30,10,20,0),
                     ModifiedDate=null,
                     ViewCount=10,
-                    Author=authors[0],
-                    Category=categories[0],
+                    Author=authors[1],
+                    Category=categories[1],
                     Tags=new List<Tag>()
                     {
                         tags[1]
@@ -147,33 +147,16 @@ namespace TatBlog.Data.Seeders
                 },
                 new()
                 {
-                    Title="ASP.NET Core Diagnostic Scenarious",
+                    Title="OKlalala",
                     ShortDescription="David and Friend has a greate reposive",
                     Description="Here's a few greate DON'T and Do examples",
                     Meta="David and friends has a greate repository filled",
-                    UrlSlug="ASPNET core diagnoretic-scenarious",
+                    UrlSlug="Ok lalala",
                     Published=true,
                     PostedDate = new DateTime(2021, 9, 30, 10, 20, 0), ModifiedDate = null,
                     ViewCount=10,
-                    Author=authors[0],
-                    Category=categories[0],
-                    Tags=new List<Tag>()
-                    {
-                        tags[0]
-                    }
-                },
-                new()
-                {
-                    Title="ASP.NET Core Diagnostic Scenarious",
-                    ShortDescription="David and Friend has a greate reposive",
-                    Description="Here's a few greate DON'T and Do examples",
-                    Meta="David and friends has a greate repository filled",
-                    UrlSlug="ASPNET core diagnoretic-scenarious",
-                    Published=true,
-                    PostedDate = new DateTime(2021, 9, 30, 10, 20, 0), ModifiedDate = null,
-                    ViewCount=10,
-                    Author=authors[0],
-                    Category=categories[0],
+                    Author=authors[2],
+                    Category=categories[2],
                     Tags=new List<Tag>()
                     {
                         tags[2]
@@ -181,19 +164,87 @@ namespace TatBlog.Data.Seeders
                 },
                 new()
                 {
-                    Title="ASP.NET Core Diagnostic Scenarious",
+                    Title="ReactJS is the new framework",
                     ShortDescription="David and Friend has a greate reposive",
                     Description="Here's a few greate DON'T and Do examples",
                     Meta="David and friends has a greate repository filled",
-                    UrlSlug="ASPNET core diagnoretic-scenarious",
+                    UrlSlug="reactjs is the new framework",
+                    Published=true,
+                    PostedDate = new DateTime(2021, 9, 30, 10, 20, 0), ModifiedDate = null,
+                    ViewCount=10,
+                    Author=authors[2],
+                    Category=categories[3],
+                    Tags=new List<Tag>()
+                    {
+                        tags[3]
+                    }
+                },
+                new()
+                {
+                    Title="ReactJS is the new framework",
+                    ShortDescription="David and Friend has a greate reposive",
+                    Description="Here's a few greate DON'T and Do examples",
+                    Meta="David and friends has a greate repository filled",
+                    UrlSlug="reactjs is the new framework",
+                    Published=true,
+                    PostedDate = new DateTime(2021, 9, 30, 10, 20, 0), ModifiedDate = null,
+                    ViewCount=10,
+                    Author=authors[2],
+                    Category=categories[3],
+                    Tags=new List<Tag>()
+                    {
+                        tags[3]
+                    }
+                },
+                new()
+                {
+                    Title="ReactJS is the new framework",
+                    ShortDescription="David and Friend has a greate reposive",
+                    Description="Here's a few greate DON'T and Do examples",
+                    Meta="David and friends has a greate repository filled",
+                    UrlSlug="reactjs is the new framework",
                     Published=true,
                     PostedDate = new DateTime(2021, 9, 30, 10, 20, 0), ModifiedDate = null,
                     ViewCount=10,
                     Author=authors[0],
+                    Category=categories[4],
+                    Tags=new List<Tag>()
+                    {
+                        tags[4]
+                    }
+                },
+                new()
+                {
+                    Title="ReactJS is the new framework",
+                    ShortDescription="David and Friend has a greate reposive",
+                    Description="Here's a few greate DON'T and Do examples",
+                    Meta="David and friends has a greate repository filled",
+                    UrlSlug="reactjs is the new framework",
+                    Published=true,
+                    PostedDate = new DateTime(2021, 9, 30, 10, 20, 0), ModifiedDate = null,
+                    ViewCount=10,
+                    Author=authors[1],
+                    Category=categories[5],
+                    Tags=new List<Tag>()
+                    {
+                        tags[2]
+                    }
+                },
+                new()
+                {
+                    Title="RESTful API new tech",
+                    ShortDescription="David and Friend has a greate reposive",
+                    Description="Here's a few greate DON'T and Do examples",
+                    Meta="David and friends has a greate repository filled",
+                    UrlSlug="RESTful API new tech",
+                    Published=true,
+                    PostedDate = new DateTime(2021, 9, 30, 10, 20, 0), ModifiedDate = null,
+                    ViewCount=10,
+                    Author=authors[1],
                     Category=categories[0],
                     Tags=new List<Tag>()
                     {
-                        tags[3]
+                        tags[0]
                     }
                 }
             };

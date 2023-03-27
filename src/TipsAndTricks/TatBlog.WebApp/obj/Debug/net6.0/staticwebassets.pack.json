@@ -5,44 +5,8 @@
       "PackagePath": "staticwebassets\\css\\main.css"
     },
     {
-      "Id": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img-1.jpg",
-      "PackagePath": "staticwebassets\\images\\img-1.jpg"
-    },
-    {
-      "Id": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img-10.png",
-      "PackagePath": "staticwebassets\\images\\img-10.png"
-    },
-    {
-      "Id": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img-2.jpg",
-      "PackagePath": "staticwebassets\\images\\img-2.jpg"
-    },
-    {
-      "Id": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img-3.jpg",
-      "PackagePath": "staticwebassets\\images\\img-3.jpg"
-    },
-    {
-      "Id": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img-4.jpg",
-      "PackagePath": "staticwebassets\\images\\img-4.jpg"
-    },
-    {
-      "Id": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img-5.jpg",
-      "PackagePath": "staticwebassets\\images\\img-5.jpg"
-    },
-    {
-      "Id": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img-6.png",
-      "PackagePath": "staticwebassets\\images\\img-6.png"
-    },
-    {
-      "Id": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img-7.jpg",
-      "PackagePath": "staticwebassets\\images\\img-7.jpg"
-    },
-    {
-      "Id": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img-8.png",
-      "PackagePath": "staticwebassets\\images\\img-8.png"
-    },
-    {
-      "Id": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img-9.jpg",
-      "PackagePath": "staticwebassets\\images\\img-9.jpg"
+      "Id": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\images\\img_1.jpg",
+      "PackagePath": "staticwebassets\\images\\img_1.jpg"
     },
     {
       "Id": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\js\\main.js",
@@ -1435,6 +1399,10 @@
     {
       "Id": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\lib\\jquery\\src\\wrap.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\src\\wrap.js"
+    },
+    {
+      "Id": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApp\\wwwroot\\templates\\emails\\EmailSubscribe.html",
+      "PackagePath": "staticwebassets\\templates\\emails\\EmailSubscribe.html"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.TatBlog.WebApp.Microsoft.AspNetCore.StaticWebAssets.props",

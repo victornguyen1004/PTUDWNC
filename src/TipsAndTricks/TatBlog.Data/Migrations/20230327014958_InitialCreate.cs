@@ -30,7 +30,7 @@ namespace TatBlog.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Category",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -42,7 +42,25 @@ namespace TatBlog.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Category", x => x.Id);
+                    table.PrimaryKey("PK_Categories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Subscribers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateSubscribe = table.Column<DateTime>(type: "datetime", nullable: false),
+                    DateUnsubscribe = table.Column<DateTime>(type: "datetime", nullable: true),
+                    Reason = table.Column<string>(type: "nvarchar(max)", maxLength: 5000, nullable: true),
+                    subscribeStatus = table.Column<int>(type: "int", nullable: false),
+                    Note = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Subscribers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -74,24 +92,48 @@ namespace TatBlog.Data.Migrations
                     ImageUrl = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
                     ViewCount = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     Published = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
-                    PostDate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    ModifedDate = table.Column<DateTime>(type: "datetime", nullable: true),
-                    CategoryID = table.Column<int>(type: "int", nullable: false),
-                    AuthorID = table.Column<int>(type: "int", nullable: false)
+                    PostedDate = table.Column<DateTime>(type: "datetime", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime", nullable: true),
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    AuthorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Posts", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Posts_Authors",
-                        column: x => x.AuthorID,
+                        column: x => x.AuthorId,
                         principalTable: "Authors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Posts_Categories",
-                        column: x => x.CategoryID,
-                        principalTable: "Category",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Comments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserName = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", maxLength: 5000, nullable: false),
+                    CommentTime = table.Column<DateTime>(type: "datetime", nullable: false),
+                    Active = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    commentStatus = table.Column<int>(type: "int", nullable: false),
+                    PostId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Comments_Posts_PostId",
+                        column: x => x.PostId,
+                        principalTable: "Posts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -121,14 +163,19 @@ namespace TatBlog.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Posts_AuthorID",
-                table: "Posts",
-                column: "AuthorID");
+                name: "IX_Comments_PostId",
+                table: "Comments",
+                column: "PostId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Posts_CategoryID",
+                name: "IX_Posts_AuthorId",
                 table: "Posts",
-                column: "CategoryID");
+                column: "AuthorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Posts_CategoryId",
+                table: "Posts",
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PostTags_TagsId",
@@ -140,7 +187,13 @@ namespace TatBlog.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Comments");
+
+            migrationBuilder.DropTable(
                 name: "PostTags");
+
+            migrationBuilder.DropTable(
+                name: "Subscribers");
 
             migrationBuilder.DropTable(
                 name: "Posts");
@@ -152,7 +205,7 @@ namespace TatBlog.Data.Migrations
                 name: "Authors");
 
             migrationBuilder.DropTable(
-                name: "Category");
+                name: "Categories");
         }
     }
 }

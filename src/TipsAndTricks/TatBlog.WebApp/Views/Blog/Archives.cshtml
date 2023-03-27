@@ -1,0 +1,21 @@
+﻿@model IPagedList<Post>
+
+@{
+    var postQuery = (ViewBag.PostQuery as PostQuery) ?? new PostQuery();
+
+    ViewData["Title"] = $"Bài viết theo năm {ViewBag.Date.Year} và tháng {ViewBag.Date.Month}";
+}
+
+<div class="p-4">
+
+    <h3 class="text-primary mb-3">
+        Những bài viết theo năm @ViewBag.Date.Year, tháng @ViewBag.Date.Month
+    </h3>
+
+    @foreach (var postItem in Model) {
+        <partial name="_PostItem" model="postItem" />
+    }
+
+    <partial name="_Pager" model="@Model" />
+
+</div>

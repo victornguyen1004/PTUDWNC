@@ -4,11 +4,12 @@ namespace TatBlog.Services.Blogs
 {
     public interface ICommentRepository
     {
+        Task<List<Comment>> GetCommentsByPostAsync(int id,
+            CancellationToken cancellationToken = default);
         Task<Comment> AddOrUpdateCommentAsync(Comment comment,
             CancellationToken cancellationToken = default);
         Task<bool> DeleteCommentAsync(int id,
             CancellationToken cancellationToken = default);
-
         Task<Comment> VerifyCommentAsync(int id,
             CommentStatus status,
             CancellationToken cancellationToken = default);

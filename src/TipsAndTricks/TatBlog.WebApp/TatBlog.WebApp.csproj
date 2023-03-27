@@ -16,7 +16,6 @@
     <Folder Include="Models\" />
     <Folder Include="wwwroot\fonts\" />
     <Folder Include="wwwroot\lib\" />
-    <Folder Include="wwwroot\templates\emails\" />
     <Folder Include="wwwroot\uploads\pictures\" />
   </ItemGroup>
 

@@ -3,27 +3,29 @@ using TatBlog.Data.Contexts;
 using TatBlog.Data.Seeders;
 using TatBlog.Services.Blogs;
 using TatBlog.WinApp;
+using Microsoft.EntityFrameworkCore.Design;
 
 public class Program
 {
     public static async Task Main(string[] args)
     {
-        //var context = new BlogDbContext();
-        //IBlogRepository blogRepository = new BlogRepository(context);
+        var context = new BlogDbContext();
+        IBlogRepository blogRepository = new BlogRepository(context);
         //Category newCategory = new Category();
         //var result = blogRepository.AddOrUpdateCategoryAsync(newCategory);
         //Console.WriteLine(result);
 
 
-        //string slug = "Hihi";
-        //var resultCategory = await blogRepository.GetCategoryBySlug(slug);
-        //if (resultCategory != null) { 
-        //Console.WriteLine(resultCategory.Name);
-        //}
-        //else
-        //{
-        //    Console.WriteLine("Khong tim thay Category voi slug la {0}", slug);
-        //}
+        string slug = "Hihi";
+        var resultCategory = await blogRepository.GetCategoryBySlugAsync(slug);
+        if (resultCategory != null)
+        {
+            Console.WriteLine(resultCategory.Name);
+        }
+        else
+        {
+            Console.WriteLine("Khong tim thay Category voi slug la {0}", slug);
+        }
 
 
         //bool result = await blogRepository.RemoveTagById(6);

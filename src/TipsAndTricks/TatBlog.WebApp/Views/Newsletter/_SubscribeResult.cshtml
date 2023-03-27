@@ -1,0 +1,14 @@
+﻿@model Subscriber
+
+@switch (Model.subscribeStatus)
+{
+    case SubscribeStatus.Subscribe:
+        <p>Đã đăng ký thành công.</p>
+        break;
+    case SubscribeStatus.Unsubscribe:
+        <p>Đã hủy đăng ký do: <span class="text-bg-info">'@Model.Reason'.</span></p>
+        break;
+    case SubscribeStatus.Block:
+        <p>Đã bị chặn đăng ký.</p>
+        break;
+}

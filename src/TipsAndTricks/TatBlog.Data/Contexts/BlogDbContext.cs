@@ -18,9 +18,13 @@ namespace TatBlog.Data.Contexts
 
         public BlogDbContext(DbContextOptions<BlogDbContext> options) : base(options)
         {
-                
+
         }
 
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-I8J7HE7;Initial Catalog=TatBlog;Integrated Security=True; TrustServerCertificate=True");
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
