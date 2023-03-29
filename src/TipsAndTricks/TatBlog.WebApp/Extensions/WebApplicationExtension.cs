@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using TatBlog.Data.Contexts;
 using TatBlog.Data.Seeders;
 using TatBlog.Services.Blogs;
+using TatBlog.WebApp.Media;
 
 namespace TatBlog.WebApp.Extensions
 {
@@ -29,6 +30,7 @@ namespace TatBlog.WebApp.Extensions
             options.UseSqlServer(
                 builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            builder.Services.AddScoped<IMediaManager, LocalFileSystemMediaManager>();
             builder.Services.AddScoped<IBlogRepository, BlogRepository>();
             builder.Services.AddScoped<ISubscriberRepository, SubscriberRepository>();
             builder.Services.AddScoped<ICommentRepository, CommentRepository>();

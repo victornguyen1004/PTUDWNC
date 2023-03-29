@@ -1,0 +1,67 @@
+﻿@model TagFilterModel
+
+@{
+    ViewData["PageTitle"] = "Danh sách thẻ";
+
+    var tagFilter = ViewBag.TagsList as IPagedList<TagItem>
+        ;
+}
+
+<h1>
+    Danh sách thẻ
+</h1>
+
+<partial name="_TagFilterPane" model="@Model" />
+
+@if (tagFilter != null && tagFilter.Count > 0)
+{
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th width="80%">Thông tin chi tiết</th>
+                <th>Tổng số bài viết</th>
+                <th width="10%"></th>
+            </tr>
+        </thead>
+        <tbody id="tblcategory">
+            @foreach (var item in tagFilter)
+            {
+                <tr>
+                    <td>
+                        <a asp-area="Admin"
+                   asp-controller="Tags"
+                   asp-action="Edit"
+                   asp-route-id="@item.Id"
+                           class="text-bold">
+                            @item.Name
+                        </a>
+                        <p class="text-muted">
+                            @item.UrlSlug
+                        </p>
+                    </td>
+                    <td>
+                        @item.PostCount
+                    </td>
+                    <td>
+                        <a class="btn btn-danger"
+                   asp-area="Admin"
+                   asp-controller="Tags"
+                   asp-action="DeleteTag"
+                   asp-route-id=@item.Id
+                           onclick="return confirm('Bạn có thực sự muốn xóa thẻ này không?')"
+                           class="text-danger">
+                            Xóa
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <partial name="_PagerFilter" model="tagFilter" />
+}
+else
+{
+    <h1 class="text-danger">
+        Không có thẻ nào
+    </h1>
+}

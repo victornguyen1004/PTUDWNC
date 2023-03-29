@@ -7,7 +7,6 @@
       "destination": "wwwroot/lib/jquery/"
     },
     {
-      "provider": "unpkg",
       "library": "jquery-validation@1.19.5",
       "destination": "wwwroot/lib/jquery-validation/",
       "files": [
@@ -144,7 +143,6 @@
       ]
     },
     {
-      "provider": "unpkg",
       "library": "jquery-validation-unobtrusive@4.0.0",
       "destination": "wwwroot/lib/jquery-validation-unobtrusive/",
       "files": [
@@ -155,7 +153,6 @@
       ]
     },
     {
-      "provider": "unpkg",
       "library": "bootstrap@5.2.3",
       "destination": "wwwroot/lib/bootstrap/",
       "files": [
@@ -208,9 +205,17 @@
       ]
     },
     {
-      "provider": "unpkg",
       "library": "font-awesome@4.7.0",
       "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "speakingurl@14.0.1",
+      "destination": "wwwroot/lib/speakingurl/",
+      "files": [
+        "LICENSE",
+        "README.md",
+        "speakingurl.min.js"
+      ]
     }
   ]
 }

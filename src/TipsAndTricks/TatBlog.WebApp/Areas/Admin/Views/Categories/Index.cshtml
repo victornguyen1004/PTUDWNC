@@ -1,0 +1,68 @@
+﻿@model IPagedList<CategoryItem>
+
+@{
+    ViewData["PageTitle"] = "Danh sách chủ đề";
+
+
+    var categoriesList = ViewBag.CategoriesList as CategoryFilterModel;
+}
+
+<h1>
+    Danh sách bài viết
+</h1>
+
+<!-- Hiển thị Form để tìm bài viết -->
+<partial name="_CategoryFilterPane" model="categoriesList" />
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th width="80%">Thông tin chi tiết</th>
+                <th>Tổng số bài viết</th>
+                <th width="10%"></th>
+            </tr>
+        </thead>
+        <tbody id="tblcategory">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-area="Admin"
+                   asp-controller="Categories"
+                   asp-action="Edit"
+                   asp-route-id="@item.Id"
+                           class="text-bold">
+                            @item.Name
+                        </a>
+                        <p class="text-muted">
+                            @item.Description
+                        </p>
+                    </td>
+                    <td>
+                        @item.PostCount
+                    </td>
+                    <td>
+                        <a class="btn btn-danger"
+                   asp-area="Admin"
+                   asp-controller="Categories"
+                   asp-action="DeleteCategory"
+                   asp-route-id=@item.Id
+                           onclick="return confirm('Bạn có thực sự muốn xóa chủ đề này không?')"
+                           class="text-danger">
+                            Xóa
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @await Html.PartialAsync("_PagerFilter", Model)
+}
+else
+{
+    <h1 class="text-danger">
+        Không có chủ đề nào
+    </h1>
+}

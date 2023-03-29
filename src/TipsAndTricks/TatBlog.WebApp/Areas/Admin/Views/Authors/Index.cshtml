@@ -1,0 +1,69 @@
+﻿@model IPagedList<AuthorItem>
+
+@{
+    ViewData["PageTitle"] = "Danh sách tác giả";
+
+    var authorFilter = ViewBag.AuthorFilter as AuthorFilterModel;
+}
+
+<h1>
+    Danh sách tác giả
+</h1>
+
+<partial name="_AuthorFilterPane" model="authorFilter" />
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th width="80%">Thông tin chi tiết</th>
+                <th>Tổng số bài viết</th>
+                <th width="10%"></th>
+            </tr>
+        </thead>
+        <tbody id="tblcategory">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-area="Admin"
+                   asp-controller="Authors"
+                   asp-action="Edit"
+                   asp-route-id="@item.Id"
+                           class="text-bold">
+                            @item.FullName
+                        </a>
+                        <p class="text-muted">
+                            @item.Notes
+                        </p>
+                        <p>
+                            Ngày tham gia: <span class="text-muted">@item.JoinedDate.ToString("yyyy MM dd")</span>
+                        </p>
+                    </td>
+                    <td>
+                        @item.PostCount
+                    </td>
+                    <td>
+                        <a class="btn btn-danger"
+                   asp-area="Admin"
+                   asp-controller="Authors"
+                   asp-action="DeleteAuthor"
+                   asp-route-id=@item.Id
+                           onclick="return confirm('Bạn có thực sự muốn xóa tác giả này không?')"
+                           class="text-danger">
+                            Xóa
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <partial name="_PagerFilter" model="Model" />
+}
+else
+{
+    <h1 class="text-danger">
+        Không có tác giả nào
+    </h1>
+}
