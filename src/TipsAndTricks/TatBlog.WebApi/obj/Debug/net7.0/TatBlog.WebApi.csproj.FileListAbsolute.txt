@@ -1,0 +1,7 @@
+C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApi\obj\Debug\net7.0\TatBlog.WebApi.csproj.AssemblyReference.cache
+C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApi\obj\Debug\net7.0\TatBlog.WebApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApi\obj\Debug\net7.0\TatBlog.WebApi.AssemblyInfoInputs.cache
+C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApi\obj\Debug\net7.0\TatBlog.WebApi.AssemblyInfo.cs
+C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApi\obj\Debug\net7.0\TatBlog.WebApi.csproj.CoreCompileInputs.cache
+C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApi\obj\Debug\net7.0\TatBlog.WebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApi\obj\Debug\net7.0\TatBlog.WebApi.MvcApplicationPartsAssemblyInfo.cache
