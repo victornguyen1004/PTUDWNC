@@ -11,4 +11,8 @@
     <Folder Include="Settings\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SlugGenerator" Version="2.0.2" />
+  </ItemGroup>
+
 </Project>

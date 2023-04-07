@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UTJQ2Tm4OQcHtVF9D6CN7xbNIhu08qZ+zm9YR+y2fD8v+1HyeXY8ksN05BY7UqU+G+D7KjYIsyL+OnPtjH2CNw==",
+  "dgSpecHash": "VTfku7hxIuSBit6WdGTj+GVZvKskfFX823Yok3knbH03DWcYMtvCvv8k5sCD4sLl9Z5pWJkYnSVOruIxQojVuA==",
   "success": true,
   "projectFilePath": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.WebApi\\TatBlog.WebApi.csproj",
   "expectedPackageFiles": [
@@ -48,6 +48,7 @@
     "C:\\Users\\USER\\.nuget\\packages\\nlog\\5.1.3\\nlog.5.1.3.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\nlog.extensions.logging\\5.2.3\\nlog.extensions.logging.5.2.3.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\nlog.web.aspnetcore\\5.2.3\\nlog.web.aspnetcore.5.2.3.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\sluggenerator\\2.0.2\\sluggenerator.2.0.2.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

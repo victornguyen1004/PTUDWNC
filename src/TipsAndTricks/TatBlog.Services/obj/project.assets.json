@@ -587,6 +587,15 @@
           }
         }
       },
+      "SlugGenerator/2.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.0/SlugGenerator.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/SlugGenerator.dll": {}
+        }
+      },
       "System.Buffers/4.5.1": {
         "type": "package",
         "compile": {
@@ -1063,6 +1072,9 @@
       "TatBlog.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SlugGenerator": "2.0.2"
+        },
         "compile": {
           "bin/placeholder/TatBlog.Core.dll": {}
         },
@@ -1957,6 +1969,22 @@
         "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "SlugGenerator/2.0.2": {
+      "sha512": "YnZfqVSdEaD+Ulif5GihlnrQjhSKpA4iDxC+S8i344w90IkBWjGDqYBRbl4aO47kXIDoFyUvWJWzvWNO6LLhXw==",
+      "type": "package",
+      "path": "sluggenerator/2.0.2",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/SlugGenerator.dll",
+        "lib/netcoreapp2.0/SlugGenerator.dll",
+        "lib/netstandard2.0/SlugGenerator.dll",
+        "sluggenerator.2.0.2.nupkg.sha512",
+        "sluggenerator.nuspec",
+        "tools/install.ps1"
       ]
     },
     "System.Buffers/4.5.1": {

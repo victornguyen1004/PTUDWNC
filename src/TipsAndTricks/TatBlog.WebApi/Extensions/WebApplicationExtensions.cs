@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NLog.Web;
 using TatBlog.Data.Contexts;
+using TatBlog.Data.Seeders;
 using TatBlog.Services.Blogs;
 using TatBlog.Services.Timing;
 using TatBlog.WebApi.Media;
@@ -52,6 +53,26 @@ namespace TatBlog.WebApi.Extensions
 
             return builder;
         }
+
+        public static IApplicationBuilder UseDataSeeder(
+            this IApplicationBuilder app)
+        {
+            using var scope = app.ApplicationServices.CreateScope();
+
+            try
+            {
+                scope.ServiceProvider.GetRequiredService<IDataSeeder>().Initialize();
+            }
+            catch (Exception e)
+            {
+                scope.ServiceProvider.GetRequiredService<ILogger<Program>>()
+                    .LogError(e, "Could not insert data into database");
+            }
+
+            return app;
+        }
+
+
 
         public static WebApplicationBuilder ConfigureSwaggerOpenApi(
             this WebApplicationBuilder builder)

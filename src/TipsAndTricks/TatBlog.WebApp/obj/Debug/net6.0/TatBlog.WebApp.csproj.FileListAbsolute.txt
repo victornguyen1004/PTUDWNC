@@ -1,9 +1,0 @@
-C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApp\obj\Debug\net6.0\TatBlog.WebApp.csproj.AssemblyReference.cache
-C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApp\obj\Debug\net6.0\TatBlog.WebApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApp\obj\Debug\net6.0\TatBlog.WebApp.AssemblyInfoInputs.cache
-C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApp\obj\Debug\net6.0\TatBlog.WebApp.AssemblyInfo.cs
-C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApp\obj\Debug\net6.0\TatBlog.WebApp.csproj.CoreCompileInputs.cache
-C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApp\obj\Debug\net6.0\TatBlog.WebApp.MvcApplicationPartsAssemblyInfo.cs
-C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApp\obj\Debug\net6.0\TatBlog.WebApp.MvcApplicationPartsAssemblyInfo.cache
-C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApp\obj\Debug\net6.0\TatBlog.WebApp.RazorAssemblyInfo.cache
-C:\PTUDWNC\src\TipsAndTricks\TatBlog.WebApp\obj\Debug\net6.0\TatBlog.WebApp.RazorAssemblyInfo.cs

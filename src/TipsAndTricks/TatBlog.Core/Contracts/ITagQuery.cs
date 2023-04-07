@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TatBlog.Core.Contracts
 {
-    internal interface IAuthorQuery
+    public interface ITagQuery
     {
+        public string Keyword { get; set; }
     }
 }

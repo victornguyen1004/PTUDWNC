@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "SqhATJ89hzwS+iPBZCGImUyVEqHVrBP/Up8Qs9/kcHbSmGk0N1c4r/v8HVMVCAOEQd4eNhcorLjKRUc4Kw6m2A==",
+  "dgSpecHash": "Wa9aW9e2WXlRVTI2LMcX1DUHOSZEdb94WyTBx5uGVcXwE1KitG9VwPdZvReMp1chiNphZEV8CE+mWY+50W/5Tg==",
   "success": true,
   "projectFilePath": "C:\\PTUDWNC\\src\\TipsAndTricks\\TatBlog.Core\\TatBlog.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\sluggenerator\\2.0.2\\sluggenerator.2.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

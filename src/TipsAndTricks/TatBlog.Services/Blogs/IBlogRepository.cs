@@ -1,4 +1,5 @@
-﻿using TatBlog.Core.Contracts;
+﻿using TatBlog.Core.Collections;
+using TatBlog.Core.Contracts;
 using TatBlog.Core.DTO;
 using TatBlog.Core.Entities;
 
@@ -41,7 +42,8 @@ namespace TatBlog.Services.Blogs
             CancellationToken cancellationToken = default);
 
         //Lấy danh sách từ khóa/thẻ và phân trang theo các tham số pagingParams
-        Task<IPagedList<TagItem>> GetPagedTagsAsync(
+        Task<IPagedList<TagItem>> GetPagedTagsQueryAsync(
+            ITagQuery tagQuery,
             IPagingParams pagingParams,
             CancellationToken cancellationToken = default);
 
@@ -66,10 +68,15 @@ namespace TatBlog.Services.Blogs
         // Find category by Id.
         Task<Category> GetCategoryByIdAsync(int id,
             CancellationToken cancellationToken = default);
+        Task<Tag> GetTagByIdAsync(int id,
+            CancellationToken cancellationToken = default);
 
         // Add or Update a category.
-        Task<Category> AddOrUpdateCategoryAsync(
+        Task<bool> AddOrUpdateCategoryAsync(
             Category category,
+            CancellationToken cancellationToken = default);
+        Task<Tag> AddOrUpdateTagAsync(
+            Tag tag,
             CancellationToken cancellationToken = default);
 
         // Delete category by Id
@@ -77,13 +84,24 @@ namespace TatBlog.Services.Blogs
             int id,
             CancellationToken cancellationToken = default);
 
+        Task<bool> DeletePostByIdAsync(
+            int id,
+            CancellationToken cancellationToken = default);
+
         // Check a category slug whether it exists or not
         Task<bool> IsCategorySlugExistedAsync(
+            int id,
+            string slug,
+            CancellationToken cancellationToken = default);
+
+        Task<bool> IsTagSlugExistedAsync(
+            int id,
             string slug,
             CancellationToken cancellationToken = default);
 
         // Get and paging list of categories, return type IPageList<CategoryItem>
         Task<IPagedList<CategoryItem>> GetPagedCategoryAsync(
+            ICategoryQuery categoryQuery,
             IPagingParams pagingParams,
             CancellationToken cancellationToken = default);
 
@@ -93,17 +111,13 @@ namespace TatBlog.Services.Blogs
 
         // Find post by Id
         Task<Post> GetPostByIdAsync(
-            int id,
+            int id, bool includeDetail = false,
             CancellationToken cancellationToken = default);
 
 
         // Add/ Update a post
         Task<Post> AddOrUpdatePostAsync(
-            Post post,
-            CancellationToken cancellationToken = default);
-
-        // Get all authors
-        Task<IList<Author>> GetAllAuthorsAsync(
+            Post post, IEnumerable<string> tags,
             CancellationToken cancellationToken = default);
 
         // Get all Categories
@@ -136,15 +150,35 @@ namespace TatBlog.Services.Blogs
             IPostQuery postQuery,
             CancellationToken cancellationToken = default);
 
-        Task<IPagedList<Post>> GetPagedPostsAsync(
+        Task<IPagedList<Post>> GetPagedPostsQueryAsync(
             IPostQuery postQuery,
             int pageNumber,
             int pageSize,
             CancellationToken cancellationToken = default);
 
-        Task<IList<Author>> GetPopularAuthorsAsync(
-            int authorsNum,
+        Task<IPagedList<T>> GetPagedPostsAsync<T>(
+            PostQuery postQuery,
+            IPagingParams pagingParam,
+            Func<IQueryable<Post>, IQueryable<T>> mapper);
+
+        Task<IPagedList<CategoryItem>> GetPagedCategoriesAsync(
+        IPagingParams pagingParams,
+        string name = null,
+        CancellationToken cancellationToken = default);
+
+        Task<IPagedList<T>> GetPagedCategoriesAsync<T>(
+            Func<IQueryable<Category>, IQueryable<T>> mapper,
+            IPagingParams pagingParams,
+            string keyword = null,
             CancellationToken cancellationToken = default);
+
+
+        Task<IPagedList<TagItem>> GetPagedTagsAsync(
+        IPagingParams pagingParams,
+        string keyword,
+        CancellationToken cancellationToken = default);
+
+        Task<bool> SetImageUrlAsync(int postId, string imageUrl, CancellationToken cancellationToken = default);
 
     }
 }
