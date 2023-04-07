@@ -16,16 +16,16 @@ public class Program
         //Console.WriteLine(result);
 
 
-        string slug = "Hihi";
-        var resultCategory = await blogRepository.GetCategoryBySlugAsync(slug);
-        if (resultCategory != null)
-        {
-            Console.WriteLine(resultCategory.Name);
-        }
-        else
-        {
-            Console.WriteLine("Khong tim thay Category voi slug la {0}", slug);
-        }
+        //string slug = "Hihi";
+        //var resultCategory = await blogRepository.GetCategoryBySlugAsync(slug);
+        //if (resultCategory != null)
+        //{
+        //    Console.WriteLine(resultCategory.Name);
+        //}
+        //else
+        //{
+        //    Console.WriteLine("Khong tim thay Category voi slug la {0}", slug);
+        //}
 
 
         //bool result = await blogRepository.RemoveTagById(6);
